@@ -18,23 +18,19 @@
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
 
-    <div id="display-data"></div>
+    <h1>GTM Test Page</h1>
+    <div id="display-keys">
+        <p id="key1-display">Key1: </p>
+        <p id="key2-display">Key2: </p>
+    </div>
 
     <script>
-        function getQueryParams() {
-            const params = new URLSearchParams(window.location.search);
-            return {
-                key1: params.get('key1'),
-                key2: params.get('key2')
-            };
-        }
-
-        function displayData() {
-            const data = getQueryParams();
-            document.getElementById('display-data').innerHTML = `Key1: ${data.key1}, Key2: ${data.key2}`;
-        }
-
-        displayData();
+    window.addEventListener('DOMContentLoaded', function() {
+        var key1 = '{{Key1}}'; // These will be replaced by GTM variables
+        var key2 = '{{Key2}}';
+        document.getElementById('key1-display').textContent = 'Key1: ' + key1;
+        document.getElementById('key2-display').textContent = 'Key2: ' + key2;
+    });
     </script>
 </body>
 </html>

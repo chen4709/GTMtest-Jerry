@@ -3,24 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GTMtest-Jerry</title>
+    <title>Test Page</title>
     <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    <script>
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
     j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-PL2L7W6V');</script>
+    })(window,document,'script','dataLayer','GTM-XXXXXXX'); // Replace GTM-XXXXXXX with your GTM ID
+    </script>
     <!-- End Google Tag Manager -->
 </head>
 <body>
     <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PL2L7W6V"
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
-
+    <h1>Welcome to the Test Page</h1>
     <div id="key1-value"></div>
     <div id="key2-value"></div>
 
+    <!-- Custom JavaScript Tag -->
     <script type="text/javascript">
     (function(a,b,c,d,e,f,g){
         e['ire_o']=c;
@@ -35,14 +38,25 @@
     })('https://utt.impactcdn.com/A2788006-de3d-4011-a57c-c4737e79de0365535.js','script','ire',document,window);
 
     window.onload = function() {
+        console.log('Page loaded');
         var params = new URLSearchParams(window.location.search);
+        console.log('URLSearchParams:', params.toString());
         var key1 = params.get('key1');
         var key2 = params.get('key2');
-        document.getElementById('key1-value').innerText = 'Key1: ' + key1;
-        document.getElementById('key2-value').innerText = 'Key2: ' + key2;
+        console.log('key1:', key1);
+        console.log('key2:', key2);
+        if (key1) {
+            document.getElementById('key1-value').innerText = 'Key1: ' + key1;
+        } else {
+            document.getElementById('key1-value').innerText = 'Key1 not found';
+        }
+        if (key2) {
+            document.getElementById('key2-value').innerText = 'Key2: ' + key2;
+        } else {
+            document.getElementById('key2-value').innerText = 'Key2 not found';
+        }
         ire('identify', {customerid: key1, customeremail: key2});
     }
     </script>
-    
 </body>
 </html>
